@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jethro Cao - Game Developer Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="#home">
+                    <i class="fas fa-gamepad"></i>
+                    Jethro Cao
+                </a>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <div class="nav-item">
+                    <a href="#home" class="nav-link">Trang chủ</a>
+                </div>
+                <div class="nav-item">
+                    <a href="#about" class="nav-link">Giới thiệu</a>
+                </div>
+                <div class="nav-item">
+                    <a href="#skills" class="nav-link">Kỹ năng</a>
+                </div>
+                <div class="nav-item">
+                    <a href="#certificates" class="nav-link">Chứng chỉ</a>
+                </div>
+                <div class="nav-item">
+                    <a href="#contact" class="nav-link">Liên hệ</a>
+                </div>
+            </div>
+            <div class="nav-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        Xin chào, tôi là <span class="highlight">Jethro Cao</span>
+                    </h1>
+                    <p class="hero-subtitle">Game Developer & Programmer</p>
+                    <p class="hero-description">
+                        Đang học tại VTC Academy chuyên ngành Lập trình Game.
+                        Đã hoàn thành khóa học tại HB Academy và đam mê phát triển game với Unity.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#skills" class="btn btn-primary">Xem kỹ năng</a>
+                        <a href="#contact" class="btn btn-secondary">Liên hệ</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="image-placeholder">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="scroll-indicator">
+                <span></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">Giới thiệu về tôi</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>
+                        Tôi là Jethro Cao, hiện đang theo học chuyên ngành <strong>Lập trình Game</strong> tại VTC
+                        Academy.
+                        Tôi đã hoàn thành khóa học tại HB Academy và đang trong quá trình phát triển kỹ năng lập trình
+                        game.
+                    </p>
+                    <p>
+                        Với niềm đam mê về công nghệ game và lập trình, tôi chuyên về phát triển game với Unity engine
+                        và các ngôn ngữ lập trình C#, C, C++. Mục tiêu hiện tại của tôi là nâng cao kỹ năng tiếng Anh
+                        để có thể tiếp cận với tài liệu và cộng đồng phát triển game quốc tế.
+                    </p>
+                    <div class="about-stats">
+                        <div class="stat">
+                            <div class="stat-icon">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <h3>VTC Academy</h3>
+                            <p>Lập trình Game</p>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-icon">
+                                <i class="fas fa-certificate"></i>
+                            </div>
+                            <h3>HB Academy</h3>
+                            <p>Đã hoàn thành</p>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-icon">
+                                <i class="fas fa-target"></i>
+                            </div>
+                            <h3>Mục tiêu</h3>
+                            <p>Tiếng Anh & Game Dev</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2 class="section-title">Kỹ năng lập trình</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fab fa-unity"></i>
+                    </div>
+                    <h3>Unity</h3>
+                    <p>Game Engine chính cho phát triển game 2D/3D</p>
+                    <div class="skill-progress">
+                        <div class="progress-bar" data-progress="75"></div>
+                    </div>
+                    <span class="progress-text">75%</span>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>C#</h3>
+                    <p>Ngôn ngữ chính cho Unity và .NET development</p>
+                    <div class="skill-progress">
+                        <div class="progress-bar" data-progress="80"></div>
+                    </div>
+                    <span class="progress-text">80%</span>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>C++</h3>
+                    <p>Lập trình hệ thống và game performance cao</p>
+                    <div class="skill-progress">
+                        <div class="progress-bar" data-progress="70"></div>
+                    </div>
+                    <span class="progress-text">70%</span>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-microchip"></i>
+                    </div>
+                    <h3>C</h3>
+                    <p>Lập trình cấp thấp và embedded systems</p>
+                    <div class="skill-progress">
+                        <div class="progress-bar" data-progress="65"></div>
+                    </div>
+                    <span class="progress-text">65%</span>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Cocos2d</h3>
+                    <p>Framework phát triển game mobile 2D</p>
+                    <div class="skill-progress">
+                        <div class="progress-bar" data-progress="60"></div>
+                    </div>
+                    <span class="progress-text">60%</span>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-language"></i>
+                    </div>
+                    <h3>English</h3>
+                    <p>Đang học để nâng cao kỹ năng giao tiếp</p>
+                    <div class="skill-progress">
+                        <div class="progress-bar" data-progress="45"></div>
+                    </div>
+                    <span class="progress-text">45%</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certificates Section -->
+    <section id="certificates" class="certificates">
+        <div class="container">
+            <h2 class="section-title">Chứng chỉ & Thành tích</h2>
+            <div class="certificates-grid">
+                <div class="certificate-card" onclick="openCertificateModal('cert1')">
+                    <div class="certificate-image">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <div class="certificate-content">
+                        <h3>Hoàn thành khóa học HB Academy</h3>
+                        <p>Chứng nhận hoàn thành chương trình đào tạo lập trình cơ bản</p>
+                        <span class="certificate-date">2024</span>
+                    </div>
+                </div>
+
+                <div class="certificate-card" onclick="openCertificateModal('cert2')">
+                    <div class="certificate-image">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <div class="certificate-content">
+                        <h3>Unity Certified User</h3>
+                        <p>Chứng nhận kỹ năng sử dụng Unity Engine (Đang học)</p>
+                        <span class="certificate-date">2025 (Dự kiến)</span>
+                    </div>
+                </div>
+
+                <div class="certificate-card" onclick="openCertificateModal('cert3')">
+                    <div class="certificate-image">
+                        <i class="fas fa-medal"></i>
+                    </div>
+                    <div class="certificate-content">
+                        <h3>C# Programming Certificate</h3>
+                        <p>Chứng nhận lập trình C# nâng cao (Đang học)</p>
+                        <span class="certificate-date">2025 (Dự kiến)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Liên hệ với tôi</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Hãy kết nối với tôi!</h3>
+                    <p>Tôi luôn sẵn sàng thảo luận về game development và các cơ hội học tập, thực tập.</p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>jethrocao.gamedev@gmail.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>+84 123 456 789</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fab fa-facebook"></i>
+                            <span>facebook.com/jethrocao</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fab fa-github"></i>
+                            <span>github.com/JethroCao-hihi</span>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="mailto:jethrocao.gamedev@gmail.com" class="social-link">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                        <a href="tel:+84123456789" class="social-link">
+                            <i class="fas fa-phone"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="https://github.com/JethroCao-hihi" class="social-link">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+                <form class="contact-form">
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" placeholder="Tên của bạn" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" placeholder="Email của bạn" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" name="message" rows="5" placeholder="Tin nhắn của bạn"
+                            required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Gửi tin nhắn</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h3>Jethro Cao</h3>
+                    <p>Game Developer & Programmer</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-contact">
+                        <h4>Liên hệ</h4>
+                        <p>Email: jethrocao.gamedev@gmail.com</p>
+                        <p>Phone: +84 123 456 789</p>
+                    </div>
+                    <div class="footer-social">
+                        <h4>Theo dõi</h4>
+                        <div class="footer-social-links">
+                            <a href="#"><i class="fab fa-facebook"></i></a>
+                            <a href="https://github.com/JethroCao-hihi"><i class="fab fa-github"></i></a>
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Jethro Cao. Tất cả quyền được bảo lưu.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Certificate Modal -->
+    <div id="certificateModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeCertificateModal()">&times;</span>
+            <div id="modalContent">
+                <!-- Certificate details will be populated here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
