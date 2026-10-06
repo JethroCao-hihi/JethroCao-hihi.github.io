@@ -1,691 +1,631 @@
+/* =========================================================
+   PORTFOLIO SCRIPT
+   Cao Xuân Minh
+========================================================= */
+
 document.addEventListener("DOMContentLoaded", () => {
-    /* ================================
-       MOBILE NAVIGATION
-    ================================= */
 
-    const mobileMenu = document.getElementById("mobile-menu");
-    const navMenu = document.getElementById("nav-menu");
+    /* =====================================================
+       ELEMENTS
+    ===================================================== */
+
+    const navbar = document.getElementById("navbar");
+    const navToggle = document.getElementById("navToggle");
+    const navMenu = document.getElementById("navMenu");
+
     const navLinks = document.querySelectorAll(".nav-link");
-
-    if (mobileMenu && navMenu) {
-        mobileMenu.addEventListener("click", () => {
-            mobileMenu.classList.toggle("active");
-            navMenu.classList.toggle("active");
-        });
-
-        navLinks.forEach((link) => {
-            link.addEventListener("click", () => {
-                mobileMenu.classList.remove("active");
-                navMenu.classList.remove("active");
-            });
-        });
-    }
-
-
-    /* ================================
-       SMOOTH SCROLL
-    ================================= */
-
-    navLinks.forEach((link) => {
-        link.addEventListener("click", (event) => {
-            const targetId = link.getAttribute("href");
-
-            if (!targetId || !targetId.startsWith("#")) {
-                return;
-            }
-
-            const target = document.querySelector(targetId);
-
-            if (!target) {
-                return;
-            }
-
-            event.preventDefault();
-
-            const offset = 80;
-
-            window.scrollTo({
-                top: target.offsetTop - offset,
-                behavior: "smooth"
-            });
-        });
-    });
-
-
-    /* ================================
-       NAVBAR SCROLL EFFECT
-    ================================= */
-
-    const navbar = document.querySelector(".navbar");
-
-    function updateNavbar() {
-        if (!navbar) return;
-
-        if (window.scrollY > 50) {
-            navbar.classList.add("scrolled");
-        } else {
-            navbar.classList.remove("scrolled");
-        }
-    }
-
-    window.addEventListener("scroll", updateNavbar);
-    updateNavbar();
-
-
-    /* ================================
-       ACTIVE NAVIGATION
-    ================================= */
 
     const sections = document.querySelectorAll("section[id]");
 
-    function updateActiveNavigation() {
-        let currentSection = "";
+    const revealElements =
+        document.querySelectorAll(".reveal");
 
-        sections.forEach((section) => {
-            const sectionTop = section.offsetTop - 150;
-            const sectionBottom = sectionTop + section.offsetHeight;
+    const backToTop =
+        document.getElementById("backToTop");
 
-            if (
-                window.scrollY >= sectionTop &&
-                window.scrollY < sectionBottom
-            ) {
-                currentSection = section.id;
-            }
-        });
+    const currentYear =
+        document.getElementById("currentYear");
 
-        navLinks.forEach((link) => {
-            link.classList.remove("active");
 
-            if (link.getAttribute("href") === `#${currentSection}`) {
-                link.classList.add("active");
-            }
-        });
+    /* =====================================================
+       CURRENT YEAR
+    ===================================================== */
+
+    if (currentYear) {
+        currentYear.textContent =
+            new Date().getFullYear();
     }
 
-    window.addEventListener("scroll", updateActiveNavigation);
+
+    /* =====================================================
+       MOBILE NAVIGATION
+    ===================================================== */
+
+    if (navToggle && navMenu) {
+
+        navToggle.addEventListener("click", () => {
+
+            navToggle.classList.toggle("active");
+
+            navMenu.classList.toggle("active");
+
+            document.body.classList.toggle(
+                "menu-open"
+            );
+
+        });
+
+
+        navLinks.forEach(link => {
+
+            link.addEventListener("click", () => {
+
+                navToggle.classList.remove("active");
+
+                navMenu.classList.remove("active");
+
+                document.body.classList.remove(
+                    "menu-open"
+                );
+
+            });
+
+        });
+
+    }
+
+
+    /* =====================================================
+       NAVBAR SCROLL EFFECT
+    ===================================================== */
+
+    function handleNavbar() {
+
+        if (!navbar) return;
+
+        if (window.scrollY > 30) {
+
+            navbar.classList.add("scrolled");
+
+        } else {
+
+            navbar.classList.remove("scrolled");
+
+        }
+
+    }
+
+    window.addEventListener(
+        "scroll",
+        handleNavbar,
+        { passive: true }
+    );
+
+    handleNavbar();
+
+
+    /* =====================================================
+       ACTIVE NAVIGATION
+    ===================================================== */
+
+    function updateActiveNavigation() {
+
+        const scrollPosition =
+            window.scrollY + 140;
+
+        let currentSection = "";
+
+        sections.forEach(section => {
+
+            const top =
+                section.offsetTop;
+
+            const height =
+                section.offsetHeight;
+
+            if (
+                scrollPosition >= top &&
+                scrollPosition < top + height
+            ) {
+
+                currentSection =
+                    section.getAttribute("id");
+
+            }
+
+        });
+
+
+        navLinks.forEach(link => {
+
+            link.classList.remove("active");
+
+            const href =
+                link.getAttribute("href");
+
+            if (
+                href === `#${currentSection}`
+            ) {
+
+                link.classList.add("active");
+
+            }
+
+        });
+
+    }
+
+    window.addEventListener(
+        "scroll",
+        updateActiveNavigation,
+        { passive: true }
+    );
+
     updateActiveNavigation();
 
 
-    /* ================================
-       SCROLL REVEAL ANIMATION
-    ================================= */
+    /* =====================================================
+       SCROLL REVEAL
+    ===================================================== */
 
-    const animatedElements = document.querySelectorAll(
-        ".project-card, " +
-        ".skill-card, " +
-        ".certificate-card, " +
-        ".stat, " +
-        ".game-design-card, " +
-        ".about-content, " +
-        ".contact-form"
-    );
+    const revealObserver =
+        new IntersectionObserver(
+            entries => {
 
-    const observer = new IntersectionObserver(
-        (entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add("animate");
-                    observer.unobserve(entry.target);
-                }
-            });
-        },
-        {
-            threshold: 0.1,
-            rootMargin: "0px 0px -60px 0px"
-        }
-    );
+                entries.forEach(entry => {
 
-    animatedElements.forEach((element) => {
-        observer.observe(element);
-    });
+                    if (entry.isIntersecting) {
 
+                        entry.target.classList.add(
+                            "visible"
+                        );
 
-    /* ================================
-       HERO TYPING EFFECT
-    ================================= */
+                        revealObserver.unobserve(
+                            entry.target
+                        );
 
-    const heroTitle = document.querySelector(".hero-title");
+                    }
 
-    if (heroTitle) {
-        const highlight = heroTitle.querySelector(".highlight");
+                });
 
-        if (highlight) {
-            const originalText = highlight.textContent;
-
-            highlight.textContent = "";
-
-            let index = 0;
-
-            function typeWriter() {
-                if (index < originalText.length) {
-                    highlight.textContent += originalText.charAt(index);
-                    index++;
-
-                    setTimeout(typeWriter, 80);
-                }
+            },
+            {
+                threshold: 0.12,
+                rootMargin: "0px 0px -40px 0px"
             }
-
-            setTimeout(typeWriter, 500);
-        }
-    }
-
-
-    /* ================================
-       CONTACT FORM
-    ================================= */
-
-    const contactForm = document.querySelector(".contact-form");
-
-    if (contactForm) {
-        contactForm.addEventListener("submit", (event) => {
-            const name = contactForm.querySelector("#name");
-            const email = contactForm.querySelector("#email");
-            const message = contactForm.querySelector("#message");
-
-            if (!name || !email || !message) {
-                return;
-            }
-
-            if (!name.value.trim()) {
-                event.preventDefault();
-                showNotification(
-                    "Vui lòng nhập tên của bạn.",
-                    "error"
-                );
-                name.focus();
-                return;
-            }
-
-            if (!isValidEmail(email.value.trim())) {
-                event.preventDefault();
-                showNotification(
-                    "Vui lòng nhập email hợp lệ.",
-                    "error"
-                );
-                email.focus();
-                return;
-            }
-
-            if (!message.value.trim()) {
-                event.preventDefault();
-                showNotification(
-                    "Vui lòng nhập nội dung tin nhắn.",
-                    "error"
-                );
-                message.focus();
-                return;
-            }
-
-            const submitButton =
-                contactForm.querySelector('button[type="submit"]');
-
-            if (submitButton) {
-                submitButton.disabled = true;
-                submitButton.textContent = "Đang gửi...";
-            }
-        });
-    }
-
-
-    /* ================================
-       PROJECT CARD HOVER
-    ================================= */
-
-    const projectCards = document.querySelectorAll(".project-card");
-
-    projectCards.forEach((card) => {
-        card.addEventListener("mouseenter", () => {
-            card.classList.add("hovered");
-        });
-
-        card.addEventListener("mouseleave", () => {
-            card.classList.remove("hovered");
-        });
-    });
-
-
-    /* ================================
-       CERTIFICATE CARD HOVER
-    ================================= */
-
-    const certificateCards =
-        document.querySelectorAll(".certificate-card");
-
-    certificateCards.forEach((card) => {
-        card.addEventListener("mouseenter", () => {
-            card.classList.add("hovered");
-        });
-
-        card.addEventListener("mouseleave", () => {
-            card.classList.remove("hovered");
-        });
-    });
-
-
-    /* ================================
-       HERO PARTICLES
-    ================================= */
-
-    createHeroParticles();
-
-
-    /* ================================
-       KONAMI CODE
-    ================================= */
-
-    initializeKonamiCode();
-
-
-    console.log(
-        "🎮 Jethro Cao - Game Developer Portfolio loaded successfully!"
-    );
-});
-
-
-/* ====================================
-   CERTIFICATE DATA
-==================================== */
-
-const certificates = {
-    cert1: {
-        title: "Hoàn thành khóa học HB Academy",
-        issuer: "HB Academy",
-        date: "2024",
-        description:
-            "Hoàn thành chương trình đào tạo lập trình cơ bản tại HB Academy, tập trung vào nền tảng lập trình, thuật toán và tư duy giải quyết vấn đề.",
-        skills: [
-            "Lập trình cơ bản",
-            "Thuật toán",
-            "Cấu trúc dữ liệu",
-            "Problem Solving"
-        ],
-        icon: "fas fa-award"
-    }
-};
-
-
-/* ====================================
-   CERTIFICATE MODAL
-==================================== */
-
-function openCertificateModal(certId) {
-    const modal = document.getElementById("certificateModal");
-    const modalContent = document.getElementById("modalContent");
-
-    if (!modal || !modalContent) {
-        return;
-    }
-
-    const certificate = certificates[certId];
-
-    if (!certificate) {
-        return;
-    }
-
-    modalContent.innerHTML = `
-        <div class="certificate-modal-content">
-
-            <div class="modal-header">
-
-                <div class="modal-icon">
-                    <i class="${certificate.icon}"></i>
-                </div>
-
-                <h2>${certificate.title}</h2>
-
-                <p class="modal-issuer">
-                    ${certificate.issuer}
-                </p>
-
-                <span class="modal-date">
-                    ${certificate.date}
-                </span>
-
-            </div>
-
-            <div class="modal-body">
-
-                <p class="modal-description">
-                    ${certificate.description}
-                </p>
-
-                <div class="modal-skills">
-
-                    <h4>Kỹ năng / Nội dung:</h4>
-
-                    <div class="skills-tags">
-                        ${certificate.skills
-                            .map(
-                                (skill) =>
-                                    `<span class="skill-tag">${skill}</span>`
-                            )
-                            .join("")}
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-    `;
-
-    modal.classList.add("active");
-    modal.style.display = "block";
-
-    document.body.style.overflow = "hidden";
-}
-
-
-function closeCertificateModal() {
-    const modal = document.getElementById("certificateModal");
-
-    if (!modal) {
-        return;
-    }
-
-    modal.classList.remove("active");
-    modal.style.display = "none";
-
-    document.body.style.overflow = "";
-}
-
-
-/* ====================================
-   CLOSE MODAL
-==================================== */
-
-window.addEventListener("click", (event) => {
-    const modal = document.getElementById("certificateModal");
-
-    if (event.target === modal) {
-        closeCertificateModal();
-    }
-});
-
-
-document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape") {
-        closeCertificateModal();
-    }
-});
-
-
-/* ====================================
-   EMAIL VALIDATION
-==================================== */
-
-function isValidEmail(email) {
-    const emailRegex =
-        /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-    return emailRegex.test(email);
-}
-
-
-/* ====================================
-   NOTIFICATION
-==================================== */
-
-function showNotification(message, type = "success") {
-
-    const existing =
-        document.querySelector(".notification");
-
-    if (existing) {
-        existing.remove();
-    }
-
-    const notification =
-        document.createElement("div");
-
-    notification.className =
-        `notification ${type}`;
-
-    notification.innerHTML = `
-        <div class="notification-content">
-
-            <i class="fas ${
-                type === "success"
-                    ? "fa-check-circle"
-                    : "fa-exclamation-circle"
-            }"></i>
-
-            <span>${message}</span>
-
-            <button
-                class="notification-close"
-                aria-label="Đóng thông báo"
-            >
-                &times;
-            </button>
-
-        </div>
-    `;
-
-    document.body.appendChild(notification);
-
-    requestAnimationFrame(() => {
-        notification.classList.add("show");
-    });
-
-    const closeButton =
-        notification.querySelector(
-            ".notification-close"
         );
 
-    if (closeButton) {
-        closeButton.addEventListener(
+
+    revealElements.forEach(element => {
+
+        revealObserver.observe(element);
+
+    });
+
+
+    /* =====================================================
+       BACK TO TOP
+    ===================================================== */
+
+    function handleBackToTop() {
+
+        if (!backToTop) return;
+
+        if (window.scrollY > 600) {
+
+            backToTop.classList.add("visible");
+
+        } else {
+
+            backToTop.classList.remove("visible");
+
+        }
+
+    }
+
+    window.addEventListener(
+        "scroll",
+        handleBackToTop,
+        { passive: true }
+    );
+
+
+    if (backToTop) {
+
+        backToTop.addEventListener(
             "click",
-            () => removeNotification(notification)
+            () => {
+
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
+                });
+
+            }
         );
+
     }
 
-    setTimeout(() => {
-        removeNotification(notification);
-    }, 5000);
-}
+
+    /* =====================================================
+       SMOOTH INTERNAL LINKS
+    ===================================================== */
+
+    document
+        .querySelectorAll('a[href^="#"]')
+        .forEach(link => {
+
+            link.addEventListener(
+                "click",
+                event => {
+
+                    const targetId =
+                        link.getAttribute("href");
+
+                    if (
+                        !targetId ||
+                        targetId === "#"
+                    ) {
+
+                        return;
+
+                    }
+
+                    const target =
+                        document.querySelector(
+                            targetId
+                        );
+
+                    if (!target) return;
+
+                    event.preventDefault();
+
+                    const offset = 75;
+
+                    const targetPosition =
+                        target.getBoundingClientRect()
+                            .top
+                        + window.scrollY
+                        - offset;
+
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: "smooth"
+                    });
+
+                }
+            );
+
+        });
 
 
-function removeNotification(notification) {
+    /* =====================================================
+       PROJECT CARD MICRO INTERACTION
+    ===================================================== */
 
-    if (!notification) {
-        return;
-    }
+    const projectCards =
+        document.querySelectorAll(
+            ".project-card"
+        );
 
-    notification.classList.remove("show");
 
-    setTimeout(() => {
-        if (notification.parentNode) {
-            notification.remove();
+    projectCards.forEach(card => {
+
+        card.addEventListener(
+            "mouseenter",
+            () => {
+
+                card.classList.add(
+                    "is-hovered"
+                );
+
+            }
+        );
+
+        card.addEventListener(
+            "mouseleave",
+            () => {
+
+                card.classList.remove(
+                    "is-hovered"
+                );
+
+            }
+        );
+
+    });
+
+
+    /* =====================================================
+       DESIGN CARD MICRO INTERACTION
+    ===================================================== */
+
+    const designCards =
+        document.querySelectorAll(
+            ".design-card"
+        );
+
+
+    designCards.forEach(card => {
+
+        card.addEventListener(
+            "mouseenter",
+            () => {
+
+                card.style.setProperty(
+                    "--mouse-active",
+                    "1"
+                );
+
+            }
+        );
+
+        card.addEventListener(
+            "mouseleave",
+            () => {
+
+                card.style.setProperty(
+                    "--mouse-active",
+                    "0"
+                );
+
+            }
+        );
+
+    });
+
+
+    /* =====================================================
+       TYPING EFFECT
+       Hero eyebrow
+    ===================================================== */
+
+    const eyebrow =
+        document.querySelector(
+            ".hero-eyebrow"
+        );
+
+
+    if (
+        eyebrow &&
+        !window.matchMedia(
+            "(prefers-reduced-motion: reduce)"
+        ).matches
+    ) {
+
+        const originalText =
+            eyebrow.textContent.trim();
+
+        eyebrow.textContent = "";
+
+        let index = 0;
+
+        function typeText() {
+
+            if (index < originalText.length) {
+
+                eyebrow.textContent +=
+                    originalText.charAt(index);
+
+                index++;
+
+                setTimeout(
+                    typeText,
+                    35
+                );
+
+            }
+
         }
-    }, 300);
-}
 
-
-/* ====================================
-   HERO PARTICLES
-==================================== */
-
-function createHeroParticles() {
-
-    const hero =
-        document.querySelector(".hero");
-
-    if (!hero) {
-        return;
-    }
-
-    const particleContainer =
-        document.createElement("div");
-
-    particleContainer.className =
-        "hero-particles";
-
-    particleContainer.setAttribute(
-        "aria-hidden",
-        "true"
-    );
-
-    for (let i = 0; i < 20; i++) {
-
-        const particle =
-            document.createElement("span");
-
-        particle.className =
-            "hero-particle";
-
-        particle.style.left =
-            `${Math.random() * 100}%`;
-
-        particle.style.top =
-            `${Math.random() * 100}%`;
-
-        particle.style.animationDelay =
-            `${Math.random() * 5}s`;
-
-        particle.style.animationDuration =
-            `${3 + Math.random() * 4}s`;
-
-        particleContainer.appendChild(
-            particle
+        setTimeout(
+            typeText,
+            400
         );
+
     }
 
-    hero.appendChild(
-        particleContainer
-    );
-}
+
+    /* =====================================================
+       HERO CODE CARD FLOAT
+    ===================================================== */
+
+    const codeCard =
+        document.querySelector(
+            ".code-card"
+        );
 
 
-/* ====================================
-   KONAMI CODE
-==================================== */
+    if (
+        codeCard &&
+        !window.matchMedia(
+            "(prefers-reduced-motion: reduce)"
+        ).matches
+    ) {
 
-function initializeKonamiCode() {
+        let ticking = false;
 
-    const konamiSequence = [
-        "ArrowUp",
-        "ArrowUp",
-        "ArrowDown",
-        "ArrowDown",
-        "ArrowLeft",
-        "ArrowRight",
-        "ArrowLeft",
-        "ArrowRight",
-        "b",
-        "a"
-    ];
+        window.addEventListener(
+            "scroll",
+            () => {
 
-    let inputSequence = [];
+                if (ticking) return;
+
+                window.requestAnimationFrame(
+                    () => {
+
+                        const scroll =
+                            window.scrollY;
+
+                        if (scroll < 900) {
+
+                            const movement =
+                                scroll * 0.025;
+
+                            codeCard.style.transform =
+                                `perspective(1000px)
+                                 rotateY(-5deg)
+                                 translateY(${movement}px)`;
+
+                        }
+
+                        ticking = false;
+
+                    }
+                );
+
+                ticking = true;
+
+            },
+            { passive: true }
+        );
+
+    }
+
+
+    /* =====================================================
+       EXTERNAL LINKS
+    ===================================================== */
+
+    document
+        .querySelectorAll(
+            'a[target="_blank"]'
+        )
+        .forEach(link => {
+
+            link.addEventListener(
+                "click",
+                () => {
+
+                    link.setAttribute(
+                        "rel",
+                        "noopener noreferrer"
+                    );
+
+                }
+            );
+
+        });
+
+
+    /* =====================================================
+       KEYBOARD ACCESSIBILITY
+    ===================================================== */
 
     document.addEventListener(
         "keydown",
-        (event) => {
-
-            inputSequence.push(
-                event.key
-            );
+        event => {
 
             if (
-                inputSequence.length >
-                konamiSequence.length
+                event.key === "Escape" &&
+                navMenu &&
+                navMenu.classList.contains(
+                    "active"
+                )
             ) {
-                inputSequence.shift();
+
+                navToggle.classList.remove(
+                    "active"
+                );
+
+                navMenu.classList.remove(
+                    "active"
+                );
+
+                document.body.classList.remove(
+                    "menu-open"
+                );
+
             }
 
-            const activated =
-                inputSequence.length ===
-                    konamiSequence.length &&
-                inputSequence.every(
-                    (key, index) =>
-                        key.toLowerCase() ===
-                        konamiSequence[index].toLowerCase()
-                );
-
-            if (activated) {
-
-                showNotification(
-                    "🎮 Secret Developer Mode Activated!",
-                    "success"
-                );
-
-                document.body.classList.add(
-                    "developer-mode"
-                );
-
-                setTimeout(() => {
-
-                    document.body.classList.remove(
-                        "developer-mode"
-                    );
-
-                }, 3000);
-
-                inputSequence = [];
-            }
         }
     );
-}
 
 
-/* ====================================
-   IMAGE LAZY LOADING
-==================================== */
+    /* =====================================================
+       EASTER EGG
+       ↑ ↑ ↓ ↓ ← → ← →
+    ===================================================== */
 
-const lazyImages =
-    document.querySelectorAll(
-        "img[data-src]"
+    const konamiCode = [
+        "ArrowUp",
+        "ArrowUp",
+        "ArrowDown",
+        "ArrowDown",
+        "ArrowLeft",
+        "ArrowRight",
+        "ArrowLeft",
+        "ArrowRight"
+    ];
+
+    let konamiIndex = 0;
+
+    document.addEventListener(
+        "keydown",
+        event => {
+
+            if (
+                event.key ===
+                konamiCode[konamiIndex]
+            ) {
+
+                konamiIndex++;
+
+                if (
+                    konamiIndex ===
+                    konamiCode.length
+                ) {
+
+                    activateEasterEgg();
+
+                    konamiIndex = 0;
+
+                }
+
+            } else {
+
+                konamiIndex = 0;
+
+            }
+
+        }
     );
 
-if ("IntersectionObserver" in window) {
 
-    const imageObserver =
-        new IntersectionObserver(
-            (entries, observer) => {
+    function activateEasterEgg() {
 
-                entries.forEach((entry) => {
-
-                    if (
-                        !entry.isIntersecting
-                    ) {
-                        return;
-                    }
-
-                    const image =
-                        entry.target;
-
-                    image.src =
-                        image.dataset.src;
-
-                    image.removeAttribute(
-                        "data-src"
-                    );
-
-                    image.classList.remove(
-                        "lazy"
-                    );
-
-                    observer.unobserve(
-                        image
-                    );
-                });
+        document.body.animate(
+            [
+                {
+                    filter: "hue-rotate(0deg)"
+                },
+                {
+                    filter: "hue-rotate(180deg)"
+                },
+                {
+                    filter: "hue-rotate(360deg)"
+                }
+            ],
+            {
+                duration: 900
             }
         );
 
-    lazyImages.forEach((image) => {
-        imageObserver.observe(image);
-    });
+    }
 
-} else {
 
-    lazyImages.forEach((image) => {
+    /* =====================================================
+       CONSOLE MESSAGE
+    ===================================================== */
 
-        image.src =
-            image.dataset.src;
+    console.log(
+        "%c🎮 Cao Xuân Minh — Game Developer Portfolio",
+        "font-size: 18px; font-weight: bold;"
+    );
 
-        image.removeAttribute(
-            "data-src"
-        );
+    console.log(
+        "%cBuilt with HTML, CSS & JavaScript.",
+        "color: #9d86ff;"
+    );
 
-    });
-}
+});
