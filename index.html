@@ -1,1332 +1,360 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <meta name="description"
-        content="Cao Xuân Minh - Game Developer & Gameplay Programmer Portfolio. Unity, C#, Game Programming and Game Design.">
-
-    <meta name="author" content="Cao Xuân Minh">
-
-    <title>Cao Xuân Minh | Game Developer Portfolio</title>
-
-    <!-- Google Font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
-        rel="stylesheet">
-
-    <!-- Font Awesome -->
-    <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-    >
-
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cao Xuân Minh, gameplay programmer</title>
+<meta name="description" content="Cao Xuân Minh viết gameplay cho game Unity bằng C#: điều khiển nhân vật, combat, AI quái. Sinh viên Game Programming tại VTC Academy, đang tìm vị trí thực tập hoặc junior.">
+<meta name="author" content="Cao Xuân Minh">
+<meta name="theme-color" content="#041310">
+<meta property="og:title" content="Cao Xuân Minh, gameplay programmer">
+<meta property="og:description" content="Combat, AI quái và boss trong Ma Cảnh: Demon Realm, cùng các project Unity khác.">
+<meta property="og:type" content="website">
+<link rel="icon" href="assets/favicon.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;800&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script>document.documentElement.classList.add("js")</script>
 </head>
-
 <body>
+<a class="skip" href="#main">Bỏ qua, tới nội dung</a>
 
-<!-- =========================================================
-     NAVIGATION
-========================================================= -->
-
-<header class="navbar" id="navbar">
-    <div class="nav-container">
-
-        <a href="#home" class="nav-logo">
-            <span class="logo-mark">CM</span>
-            <span>Cao Xuân Minh</span>
-        </a>
-
-        <nav class="nav-menu" id="navMenu">
-
-            <a href="#home" class="nav-link active">
-                Trang chủ
-            </a>
-
-            <a href="#about" class="nav-link">
-                Giới thiệu
-            </a>
-
-            <a href="#projects" class="nav-link">
-                Projects
-            </a>
-
-            <a href="#design" class="nav-link">
-                Game Design
-            </a>
-
-            <a href="#skills" class="nav-link">
-                Kỹ năng
-            </a>
-
-            <a href="#education" class="nav-link">
-                Học vấn
-            </a>
-
-            <a href="#contact" class="nav-link">
-                Liên hệ
-            </a>
-
-        </nav>
-
-        <button
-            class="nav-toggle"
-            id="navToggle"
-            aria-label="Mở menu"
-            type="button"
-        >
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-
-    </div>
+<header class="bar" id="bar">
+  <a class="bar__name" href="#top">Cao Xuân Minh</a>
+  <nav class="bar__nav" aria-label="Mục chính">
+    <a href="#ma-canh">Ma Cảnh</a>
+    <a href="#du-an">Dự án khác</a>
+    <a href="#thiet-ke">Thiết kế game</a>
+    <a href="#lien-he">Liên hệ</a>
+  </nav>
+  <a class="bar__cv" href="#cv">CV</a>
 </header>
 
+<main id="main">
 
-<!-- =========================================================
-     HERO
-========================================================= -->
+<section class="hero" id="top" aria-labelledby="hero-title">
+  <div class="hero__scene" aria-hidden="true">
+    <div class="layer layer--5" data-depth="0.05"></div>
+    <div class="layer layer--4" data-depth="0.12"></div>
+    <div class="layer layer--3" data-depth="0.22"></div>
+    <div class="layer layer--2" data-depth="0.36"></div>
+    <div class="layer layer--1" data-depth="0.55"></div>
+  </div>
 
-<main>
+  <h1 class="hero__title" id="hero-title">
+    <span class="hero__line">Cao Xuân</span>
+    <span class="hero__line hero__line--big">Minh</span>
+  </h1>
 
-<section class="hero" id="home">
+  <div class="hero__front" aria-hidden="true">
+    <div class="hero__player" id="heroPlayer"></div>
+  </div>
 
-    <div class="hero-grid"></div>
+  <div class="hero__ground">
+    <p class="hero__role">Gameplay programmer · Unity, C#</p>
+    <p class="hero__lede">
+      Tôi viết gameplay cho game Unity: điều khiển nhân vật, combat và AI quái.
+      Hiện học Game Programming tại VTC Academy <span class="nowrap">(2024–2027)</span> và đang tìm chỗ thực tập
+      hoặc vị trí junior gameplay programmer.
+    </p>
+    <div class="hero__actions">
+      <a class="btn btn--main" href="mailto:luonminh0203@gmail.com?subject=Trao%20%C4%91%E1%BB%95i%20v%E1%BB%81%20v%E1%BB%8B%20tr%C3%AD%20gameplay%20programmer">Gửi email cho tôi</a>
+      <a class="btn btn--ghost" href="#cv">Xem CV</a>
+      <a class="hero__more" href="#choi-thu" id="playLink">Chơi thử combat</a>
+    </div>
+  </div>
+</section>
 
-    <div class="hero-glow hero-glow-one"></div>
-    <div class="hero-glow hero-glow-two"></div>
+<section class="mc" id="ma-canh" aria-labelledby="mc-title">
+  <div class="wrap mc__head">
+    <img class="mc__logo" src="assets/demon-realm-logo.png" width="200" height="200" alt="Logo chữ Demon Realm màu đỏ trong game">
+    <div>
+      <h2 id="mc-title">Ma Cảnh: Demon Realm</h2>
+      <p class="mc__meta">Game 2D hành động đi cảnh. Unity 6, URP, C#. Làm theo nhóm, từ 2024 đến nay.</p>
+      <p class="mc__intro">
+        Phần tôi phụ trách là những thứ người chơi bấm vào: combo ba đòn, đánh trên không,
+        lướt, đỡ và phản đòn. Tôi cũng viết AI cho ba loại quái bằng state machine,
+        lo quản lý level, chuyển scene, và giữ repo chung của nhóm trên GitHub.
+      </p>
+      <a class="link-arrow" href="https://github.com/JethroCao-hihi/MA-CANH-DEMON-REALM" target="_blank" rel="noopener noreferrer">Mở repo Ma Cảnh trên GitHub</a>
+    </div>
+  </div>
 
-    <div class="container hero-container">
+  <div class="play wrap" id="choi-thu" aria-labelledby="play-title">
+    <div class="play__intro">
+      <h3 id="play-title">Chơi thử combat của Ma Cảnh</h3>
+      <p>
+        Nhân vật, quái, khu rừng và tốc độ animation lấy từ repo. Sát thương, cooldown, lướt,
+        phản đòn, máu, thời gian bất tử sau khi trúng đòn và tầm đánh của quái dùng giá trị mặc
+        định trong các script của game. Phần tôi tự thêm cho bản web: trọng lực và vị trí điểm
+        chém (hai giá trị này nằm trong scene Unity), kích thước hitbox, và việc quái hồi sinh sau 2,5 s.
+      </p>
+    </div>
 
-        <div class="hero-content reveal">
-
-            <div class="hero-badge">
-                <span class="status-dot"></span>
-                Open to Internship / Junior Opportunities
-            </div>
-
-            <p class="hero-eyebrow">
-                GAME DEVELOPER • GAME PROGRAMMER
-            </p>
-
-            <h1>
-                Cao Xuân Minh
-                <span class="hero-highlight">
-                    <br>Game Developer
-                </span>
-            </h1>
-
-            <p class="hero-description">
-                Sinh viên Game Programming tại VTC Academy, tập trung vào
-                <strong>Unity, C# và gameplay programming</strong>.
-                Tôi thích xây dựng gameplay systems, combat, AI, UI và
-                các prototype game có thể chơi được.
-            </p>
-
-            <div class="hero-actions">
-
-                <a href="#projects" class="btn btn-primary">
-                    <i class="fa-solid fa-gamepad"></i>
-                    Xem Projects
-                </a>
-
-                <a
-                    href="https://github.com/JethroCao-hihi"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="btn btn-outline"
-                >
-                    <i class="fa-brands fa-github"></i>
-                    GitHub
-                </a>
-
-              <a href="CV.pdf" class="btn btn-primary" target="_blank" rel="noopener">
-    <i class="fa-solid fa-file-lines"></i>
-    Xem CV
-</a>
-
-<a href="CV.pdf" class="btn btn-secondary" download>
-    <i class="fa-solid fa-download"></i>
-    Tải CV
-</a>
-            </div>
-
-            <div class="hero-stack">
-
-                <span>Unity</span>
-                <span>C#</span>
-                <span>Gameplay</span>
-                <span>Game Design</span>
-                <span>Git</span>
-
-            </div>
-
+    <div class="play__body">
+      <div class="play__main">
+      <div class="arena" id="arena" tabindex="0" role="application" aria-label="Màn chơi thử. Bấm để chơi, phím A D để đi, J đánh, K lướt, L đỡ hoặc phản đòn, Space nhảy, Esc tạm dừng." aria-describedby="playKeys">
+        <canvas id="game" width="400" height="110"></canvas>
+        <p class="arena__hud" id="hud" aria-hidden="true">Đã hạ 0</p>
+        <button type="button" class="arena__start" id="btnStart">Bấm để chơi</button>
+        <noscript><p class="arena__nojs">Màn chơi cần JavaScript. Code gốc ở repo Ma Cảnh trên GitHub.</p></noscript>
+      </div>
+        <div class="pad" aria-label="Nút điều khiển">
+          <div class="pad__move">
+            <button type="button" class="pad__btn" data-act="left" aria-label="Đi trái">◀</button>
+            <button type="button" class="pad__btn" data-act="right" aria-label="Đi phải">▶</button>
+          </div>
+          <div class="pad__acts">
+            <button type="button" class="pad__btn" data-act="jump">Nhảy</button>
+            <button type="button" class="pad__btn pad__btn--hit" data-act="attack">Đánh <kbd>J</kbd></button>
+            <button type="button" class="pad__btn" data-act="dash">Lướt <kbd>K</kbd></button>
+            <button type="button" class="pad__btn" data-act="guard">Đỡ <kbd>L</kbd></button>
+            <button type="button" class="pad__btn pad__btn--quiet" data-act="restart">Chơi lại</button>
+          </div>
         </div>
+      </div>
 
+      <aside class="debug" aria-labelledby="debug-title">
+        <h4 id="debug-title">Biến trong script, đổi theo từng frame</h4>
+        <dl class="debug__vars" id="debug"></dl>
+        <p class="debug__log" id="debugLog" aria-live="polite">Chưa bắt đầu.</p>
+      </aside>
+    </div>
 
-        <div class="hero-visual reveal">
+    <p class="play__keys" id="playKeys">
+      Bàn phím như trong game: <kbd>A</kbd> <kbd>D</kbd> hoặc mũi tên để đi, <kbd>Space</kbd> nhảy,
+      <kbd>J</kbd> đánh (bấm liên tiếp ra combo 3 đòn), <kbd>K</kbd> hoặc <kbd>Shift</kbd> lướt.
+      Chạm nhanh <kbd>L</kbd> (dưới 0,18 s) để phản đòn, giữ <kbd>L</kbd> để đỡ. <kbd>Esc</kbd> tạm dừng.
+      Bấm vào khung chơi trước để phím có tác dụng.
+    </p>
+    <p class="play__touch">Dùng các nút dưới khung chơi. Chạm nhanh nút Đỡ để phản đòn, giữ nút Đỡ để đỡ đòn.</p>
+  </div>
 
-            <div class="code-card">
-
-                <div class="code-header">
-
-                    <div class="window-dots">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
-
-                    <span>Gameplay.cs</span>
-
-                </div>
-
-                <div class="code-body">
-
-<pre><code><span class="code-keyword">public class</span>
-<span class="code-class">PlayerController</span> : MonoBehaviour
+  <div class="wrap mc__code">
+    <div class="mc__code-text">
+      <h3>Phản đòn trong code</h3>
+      <p>
+        Chạm nhanh <kbd>L</kbd> (thả ra trước 0,18 s) thì <code>PlayerMovement</code> gọi
+        <code>RequestParry()</code>. Hàm dưới đây mở cửa sổ phản đòn 0,25 s rồi tự đóng bằng
+        <code>Invoke</code>. Giữ <kbd>L</kbd> quá 0,18 s thì thành đỡ đòn. Trong thời gian đó
+        <code>PlayerHealth</code> không trừ máu.
+      </p>
+    </div>
+    <figure class="code">
+      <figcaption><a href="https://github.com/JethroCao-hihi/MA-CANH-DEMON-REALM/blob/main/Assets/Scripts/Player/PlayerAttack.cs#L177-L198" target="_blank" rel="noopener noreferrer">Assets/Scripts/Player/PlayerAttack.cs, dòng 177–198</a></figcaption>
+<pre><code><span class="k">private void</span> <span class="f">TryParry</span>()
 {
-    <span class="code-keyword">void</span> Update()
+    <span class="k">if</span> (Time.time &lt; lastParryTime + parryCooldown) <span class="k">return</span>;
+
+    lastParryTime = Time.time;
+
+    <span class="k">if</span> (hasParryTrigger)
     {
-        Move();
-        HandleCombat();
-        HandleDash();
+        anim.ResetTrigger(parryTriggerHash);
+        anim.SetTrigger(parryTriggerHash);
+        <span class="k">if</span> (SoundManager.Instance != <span class="k">null</span>)
+            SoundManager.Instance.PlayPlayerSfx(<span class="s">"Parry"</span>);
     }
 
-    <span class="code-keyword">void</span> HandleCombat()
-    {
-        <span class="code-comment">// Build gameplay systems</span>
-    }
+    <span class="c">// Có thể dùng bool để transition nếu animator cần</span>
+    isParrying = <span class="k">true</span>;
+    <span class="k">if</span> (hasIsParryingParam)
+        anim.SetBool(isParryingHash, <span class="k">true</span>);
+
+    CancelInvoke(<span class="k">nameof</span>(EndParryWindow));
+    Invoke(<span class="k">nameof</span>(EndParryWindow), parryWindow);
 }</code></pre>
+    </figure>
+  </div>
 
-                </div>
-
-                <div class="code-footer">
-
-                    <span>
-                        <i class="fa-solid fa-circle-check"></i>
-                        Unity
-                    </span>
-
-                    <span>
-                        C#
-                    </span>
-
-                    <span>
-                        Gameplay
-                    </span>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-    <div class="scroll-indicator">
-        <span></span>
-        <small>Scroll to explore</small>
-    </div>
-
+  <div class="wrap foes">
+    <h3>Quái và boss trong màn</h3>
+    <table class="foes__table">
+      <caption class="visually-hidden">Các loại quái trong Ma Cảnh, hành vi và chỉ số mặc định trong script</caption>
+      <thead>
+        <tr><th scope="col">Quái</th><th scope="col">Hành vi</th><th scope="col">Chỉ số mặc định</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row"><span class="foe foe--slime" role="img" aria-label="Slime đỏ đang chạy"></span><span>Slime</span></th>
+          <td>Tuần tra qua lại. Thấy người chơi trong 6 đơn vị thì đuổi theo, chạm vào là trừ máu.</td>
+          <td class="num">Va chạm: 5 máu, 0,75 s một lần<br>Tầm đánh 1,2</td>
+        </tr>
+        <tr>
+          <th scope="row"><span class="foe foe--bug" role="img" aria-label="Quái bọ bay"></span><span>Bug</span></th>
+          <td>Bay lơ lửng cách mặt đất 3 đơn vị, bám theo người chơi rồi đánh trúng cả một vùng.</td>
+          <td class="num">10 máu mỗi đòn, bán kính 0,8<br>Hồi đòn 1,2 s</td>
+        </tr>
+        <tr>
+          <th scope="row"><span class="foe foe--shield" role="img" aria-label="Quái cầm khiên đang đi"></span><span>Shield</span></th>
+          <td>Lao tới đẩy văng người chơi bằng khiên, sau đó chém. Đỡ đúng lúc thì không mất máu.</td>
+          <td class="num">Đẩy: 8 máu, lực văng 10<br>Chém: 12 máu</td>
+        </tr>
+        <tr>
+          <th scope="row"><span class="foe foe--boss" role="img" aria-label="Boss đầu xanh có sừng"></span><span>Boss</span></th>
+          <td>Mở màn bằng cutscene. Chọn ngẫu nhiên giữa bắn đạn và đập tay tạo sóng. Boss hết máu thì chiếu outro và credits.</td>
+          <td class="num">300 máu<br>Nghỉ 3 s giữa hai đòn</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="foes__foot">
+      Số trong bảng là giá trị mặc định trong script, scene có thể chỉnh lại trong Inspector.
+      Ngoài gameplay, repo có hai tool editor để dựng cutscene và bộ test EditMode cho
+      <code>CutsceneStateStore</code>, phần nhớ cutscene nào người chơi đã xem.
+    </p>
+  </div>
 </section>
 
+<section class="more" id="du-an" aria-labelledby="more-title">
+  <div class="wrap">
+    <h2 id="more-title">Những dự án khác</h2>
+    <p class="more__lede">Ba repo dưới đây chưa có ảnh chụp, nên tôi để link thẳng tới file code đáng đọc nhất của từng cái.</p>
 
-<!-- =========================================================
-     ABOUT
-========================================================= -->
-
-<section class="section about-section" id="about">
-
-    <div class="container">
-
-        <div class="section-heading reveal">
-
-            <span class="section-label">
-                01 — ABOUT ME
-            </span>
-
-            <h2>
-                Tôi xây dựng game bằng
-                <span>code & gameplay</span>.
-            </h2>
-
-            <p>
-                Tôi đang phát triển định hướng trở thành
-                <strong>Game Developer / Gameplay Programmer</strong>,
-                đồng thời quan tâm đến Game Design và cách biến một
-                ý tưởng thành gameplay có thể trải nghiệm được.
-            </p>
-
+    <ul class="ledger">
+      <li class="ledger__row">
+        <div class="ledger__name">
+          <h3>Tower Defense 3D</h3>
+          <p>3D, Unity 6.3. Đồ án học kỳ ở VTC.</p>
         </div>
-
-
-        <div class="about-grid">
-
-            <div class="about-main reveal">
-
-                <p>
-                    Trong quá trình học và làm project, tôi tập trung nhiều
-                    vào Unity và C#, đặc biệt là player controller,
-                    combat systems, enemy behaviour, UI, scene management
-                    và các gameplay mechanics.
-                </p>
-
-                <p>
-                    Tôi thích làm việc trực tiếp với gameplay systems,
-                    debug vấn đề trong quá trình phát triển và tổ chức
-                    code sao cho dễ mở rộng khi project lớn dần.
-                </p>
-
-                <p>
-                    Bên cạnh programming, tôi cũng thực hiện các
-                    <strong>Game Design Document (GDD)</strong> để luyện
-                    khả năng thiết kế core loop, mechanics, progression
-                    và định hướng sản phẩm.
-                </p>
-
-            </div>
-
-
-            <div class="about-cards">
-
-                <div class="info-card reveal">
-
-                    <div class="info-icon">
-                        <i class="fa-solid fa-code"></i>
-                    </div>
-
-                    <div>
-                        <span>Focus</span>
-                        <h3>Gameplay Programming</h3>
-                    </div>
-
-                </div>
-
-
-                <div class="info-card reveal">
-
-                    <div class="info-icon">
-                        <i class="fa-solid fa-gamepad"></i>
-                    </div>
-
-                    <div>
-                        <span>Engine</span>
-                        <h3>Unity</h3>
-                    </div>
-
-                </div>
-
-
-                <div class="info-card reveal">
-
-                    <div class="info-icon">
-                        <i class="fa-solid fa-lightbulb"></i>
-                    </div>
-
-                    <div>
-                        <span>Additional</span>
-                        <h3>Game Design</h3>
-                    </div>
-
-                </div>
-
-
-                <div class="info-card reveal">
-
-                    <div class="info-icon">
-                        <i class="fa-solid fa-code-branch"></i>
-                    </div>
-
-                    <div>
-                        <span>Workflow</span>
-                        <h3>Git / GitHub</h3>
-                    </div>
-
-                </div>
-
-            </div>
-
+        <p class="ledger__what">
+          Năm đợt quái, đợt cuối là boss UFO. Kéo một tháp thả lên tháp cùng loại, cùng cấp
+          để ghép thành tháp cấp cao hơn. Quái biết bắn trả nên phải canh máu tháp, bán tháp
+          hỏng lấy lại 50% tiền. Chỉ số tháp và quái nằm trong ScriptableObject để cân bằng
+          mà không sửa code, quái được lấy ra từ object pool.
+        </p>
+        <ul class="ledger__files">
+          <li><a href="https://github.com/JethroCao-hihi/TowerDefense3D/blob/main/Assets/Scripts/Wave/WaveManager.cs" target="_blank" rel="noopener noreferrer">WaveManager.cs</a></li>
+          <li><a href="https://github.com/JethroCao-hihi/TowerDefense3D/blob/main/Assets/Scripts/Tower/TowerPlacementManager.cs" target="_blank" rel="noopener noreferrer">TowerPlacementManager.cs</a></li>
+          <li><a href="https://github.com/JethroCao-hihi/TowerDefense3D/blob/main/Assets/Scripts/SimplePool.cs" target="_blank" rel="noopener noreferrer">SimplePool.cs</a></li>
+        </ul>
+      </li>
+      <li class="ledger__row">
+        <div class="ledger__name">
+          <h3>VOIDSTRIKE</h3>
+          <p>FPS, Unity. Đang làm.</p>
         </div>
-
-    </div>
-
+        <p class="ledger__what">
+          Prototype bắn súng góc nhìn thứ nhất chơi qua mạng. Đã có di chuyển, súng, máu
+          người chơi, và <code>RoomManager</code> kết nối Photon PUN để vào phòng rồi
+          sinh nhân vật ở điểm xuất phát.
+        </p>
+        <ul class="ledger__files">
+          <li><a href="https://github.com/JethroCao-hihi/VOIDSTRIKE/blob/main/Assets/Scripts/RoomManager.cs" target="_blank" rel="noopener noreferrer">RoomManager.cs</a></li>
+          <li><a href="https://github.com/JethroCao-hihi/VOIDSTRIKE/blob/main/Assets/Scripts/Gun/Gun.cs" target="_blank" rel="noopener noreferrer">Gun.cs</a></li>
+        </ul>
+      </li>
+      <li class="ledger__row">
+        <div class="ledger__name">
+          <h3>InfinityMaze</h3>
+          <p>2D, Unity.</p>
+        </div>
+        <p class="ledger__what">
+          Mê cung tạo ngẫu nhiên, càng chơi càng khó, có điểm và bảng xếp hạng.
+          <code>Game.cs</code> xử lý cả thao tác vuốt để chơi trên màn hình cảm ứng.
+        </p>
+        <ul class="ledger__files">
+          <li><a href="https://github.com/JethroCao-hihi/InfinityMaze/blob/main/Assets/Scrips/Game.cs" target="_blank" rel="noopener noreferrer">Game.cs</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
 </section>
 
-
-<!-- =========================================================
-     PROJECTS
-========================================================= -->
-
-<section class="section projects-section" id="projects">
-
-    <div class="container">
-
-        <div class="section-heading center reveal">
-
-            <span class="section-label">
-                02 — PROJECTS
-            </span>
-
-            <h2>
-                Những project tôi đã
-                <span>thực sự làm</span>.
-            </h2>
-
-            <p>
-                Đây là phần quan trọng nhất của portfolio —
-                nơi thể hiện trực tiếp kỹ năng programming và
-                khả năng xây dựng gameplay.
-            </p>
-
-        </div>
-
-
-        <div class="projects-grid">
-
-
-            <!-- MA CANH -->
-
-            <article class="project-card project-featured reveal">
-
-                <div class="project-visual ma-canh">
-
-                    <div class="project-visual-content">
-
-                        <span class="project-number">
-                            01
-                        </span>
-
-                        <i class="fa-solid fa-skull-crossbones"></i>
-
-                        <span class="visual-title">
-                            MA CẢNH
-                        </span>
-
-                    </div>
-
-                    <span class="project-status">
-                        Featured Project
-                    </span>
-
-                </div>
-
-
-                <div class="project-content">
-
-                    <div class="project-top">
-
-                        <div>
-
-                            <span class="project-type">
-                                2D ACTION-PLATFORMER
-                            </span>
-
-                            <h3>
-                                MA-CANH — DEMON REALM
-                            </h3>
-
-                        </div>
-
-                        <span class="project-year">
-                            Unity 6
-                        </span>
-
-                    </div>
-
-
-                    <p>
-                        Game 2D action-platformer phát triển bằng Unity URP,
-                        tập trung vào combat tốc độ cao, boss encounter,
-                        cinematic cutscenes và scene transitions.
-                    </p>
-
-
-                    <div class="project-highlights">
-
-                        <span>
-                            <i class="fa-solid fa-sword"></i>
-                            Combat
-                        </span>
-
-                        <span>
-                            <i class="fa-solid fa-robot"></i>
-                            Enemy AI
-                        </span>
-
-                        <span>
-                            <i class="fa-solid fa-dragon"></i>
-                            Boss
-                        </span>
-
-                        <span>
-                            <i class="fa-solid fa-film"></i>
-                            Cutscene
-                        </span>
-
-                        <span>
-                            <i class="fa-solid fa-vial"></i>
-                            Testing
-                        </span>
-
-                    </div>
-
-
-                    <div class="tech-tags">
-
-                        <span>Unity</span>
-                        <span>C#</span>
-                        <span>URP</span>
-                        <span>Timeline</span>
-                        <span>Unity Test Framework</span>
-
-                    </div>
-
-
-                    <div class="project-actions">
-
-                        <a
-                            href="https://github.com/JethroCao-hihi/MA-CANH-DEMON-REALM"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="project-link primary"
-                        >
-                            <i class="fa-brands fa-github"></i>
-                            View Repository
-                        </a>
-
-                    </div>
-
-                </div>
-
-            </article>
-
-
-            <!-- INFINITY MAZE -->
-
-            <article class="project-card reveal">
-
-                <div class="project-visual infinity-maze">
-
-                    <div class="project-visual-content">
-
-                        <span class="project-number">
-                            02
-                        </span>
-
-                        <i class="fa-solid fa-dungeon"></i>
-
-                        <span class="visual-title">
-                            INFINITY MAZE
-                        </span>
-
-                    </div>
-
-                </div>
-
-
-                <div class="project-content">
-
-                    <span class="project-type">
-                        2D MAZE GAME
-                    </span>
-
-                    <h3>
-                        InfinityMaze
-                    </h3>
-
-                    <p>
-                        Game mê cung 2D phát triển với Unity,
-                        sử dụng mê cung tạo ngẫu nhiên,
-                        difficulty progression, score và leaderboard.
-                    </p>
-
-
-                    <div class="tech-tags">
-
-                        <span>Unity</span>
-                        <span>C#</span>
-                        <span>2D</span>
-                        <span>Procedural</span>
-
-                    </div>
-
-
-                    <a
-                        href="https://github.com/JethroCao-hihi/InfinityMaze"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="project-link"
-                    >
-                        <i class="fa-brands fa-github"></i>
-                        GitHub
-                    </a>
-
-                </div>
-
-            </article>
-
-
-            <!-- TOWER DEFENSE -->
-
-            <article class="project-card reveal">
-
-                <div class="project-visual tower-defense">
-
-                    <div class="project-visual-content">
-
-                        <span class="project-number">
-                            03
-                        </span>
-
-                        <i class="fa-solid fa-tower-observation"></i>
-
-                        <span class="visual-title">
-                            TOWER DEFENSE
-                        </span>
-
-                    </div>
-
-                </div>
-
-
-                <div class="project-content">
-
-                    <span class="project-type">
-                        3D TOWER DEFENSE
-                    </span>
-
-                    <h3>
-                        Tower Defense 3D
-                    </h3>
-
-                    <p>
-                        Project 3D Tower Defense tập trung vào
-                        wave system, tower fusion, economy và
-                        data-driven balancing bằng ScriptableObject.
-                    </p>
-
-
-                    <div class="tech-tags">
-
-                        <span>Unity 6.3</span>
-                        <span>C#</span>
-                        <span>ScriptableObject</span>
-                        <span>3D</span>
-
-                    </div>
-
-
-                    <a
-                        href="https://github.com/JethroCao-hihi/TowerDefense3D"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="project-link"
-                    >
-                        <i class="fa-brands fa-github"></i>
-                        GitHub
-                    </a>
-
-                </div>
-
-            </article>
-
-
-            <!-- VOIDSTRIKE -->
-
-            <article class="project-card reveal">
-
-                <div class="project-visual voidstrike">
-
-                    <div class="project-visual-content">
-
-                        <span class="project-number">
-                            04
-                        </span>
-
-                        <i class="fa-solid fa-crosshairs"></i>
-
-                        <span class="visual-title">
-                            VOIDSTRIKE
-                        </span>
-
-                    </div>
-
-                    <span class="project-status">
-                        In Development
-                    </span>
-
-                </div>
-
-
-                <div class="project-content">
-
-                    <span class="project-type">
-                        FPS PROTOTYPE
-                    </span>
-
-                    <h3>
-                        VOIDSTRIKE
-                    </h3>
-
-                    <p>
-                        Prototype FPS project đang trong quá trình
-                        phát triển. Repository được sử dụng để lưu trữ
-                        và phát triển project Unity.
-                    </p>
-
-                    <div class="tech-tags">
-
-                        <span>Unity</span>
-                        <span>C#</span>
-                        <span>FPS</span>
-                        <span>Prototype</span>
-
-                    </div>
-
-                    <a
-                        href="https://github.com/JethroCao-hihi/VOIDSTRIKE"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="project-link"
-                    >
-                        <i class="fa-brands fa-github"></i>
-                        GitHub
-                    </a>
-
-                </div>
-
-            </article>
-
-        </div>
-
-
-        <div class="github-cta reveal">
-
-            <div>
-
-                <span>
-                    <i class="fa-brands fa-github"></i>
-                    More work
-                </span>
-
-                <h3>
-                    Xem toàn bộ code & project
-                </h3>
-
-            </div>
-
-            <a
-                href="https://github.com/JethroCao-hihi"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="btn btn-dark"
-            >
-                Open GitHub
-                <i class="fa-solid fa-arrow-up-right-from-square"></i>
-            </a>
-
-        </div>
-
+<section class="design" id="thiet-ke" aria-labelledby="design-title">
+  <div class="wrap design__grid">
+    <h2 id="design-title">Thiết kế game</h2>
+    <div class="design__text">
+      <p>
+        Trước khi code, tôi viết GDD để chốt core loop và các cơ chế. Sau đó dựng prototype
+        trong Unity rồi chỉnh tiếp bằng cách chơi thử và sửa code. Hai bản GDD dưới đây là
+        concept, chưa thành game, và chưa đăng công khai.
+      </p>
+      <article class="gdd">
+        <h3>Aerostrike</h3>
+        <p class="gdd__role">Lead game designer</p>
+        <p>
+          Game bắn máy bay màn hình dọc cho điện thoại, thêm yếu tố RPG, theo hướng
+          free-to-play. Tôi dựng ý tưởng cốt lõi, vòng chơi chính, hệ thống lên cấp của
+          người chơi và viết chi tiết từng cơ chế trong GDD.
+        </p>
+      </article>
+      <article class="gdd">
+        <h3>Maze of Growth</h3>
+        <p class="gdd__role">Game design</p>
+        <p>
+          Concept giải đố, phiêu lưu và sinh tồn: một đứa trẻ đi khám phá mê cung không có
+          điểm cuối. Hướng tới cả điện thoại và PC.
+        </p>
+      </article>
     </div>
-
+  </div>
 </section>
 
-
-<!-- =========================================================
-     GAME DESIGN
-========================================================= -->
-
-<section class="section design-section" id="design">
-
-    <div class="container">
-
-        <div class="section-heading reveal">
-
-            <span class="section-label">
-                03 — GAME DESIGN
-            </span>
-
-            <h2>
-                Không chỉ code —
-                tôi còn <span>thiết kế game</span>.
-            </h2>
-
-            <p>
-                Một số concept và Game Design Document được thực hiện
-                để phát triển tư duy về mechanics, progression,
-                core loop và product direction.
-            </p>
-
-        </div>
-
-
-        <div class="design-grid">
-
-
-            <article class="design-card reveal">
-
-                <div class="design-icon">
-                    <i class="fa-solid fa-jet-fighter"></i>
-                </div>
-
-                <span class="design-type">
-                    GAME DESIGN DOCUMENT
-                </span>
-
-                <h3>
-                    AEROSTRIKE
-                </h3>
-
-                <p>
-                    Concept game mobile SHMUP/RPG theo hướng
-                    free-to-play, tập trung vào gameplay loop,
-                    progression và định hướng sản phẩm.
-                </p>
-
-                <div class="design-role">
-                    <i class="fa-solid fa-user"></i>
-                    Lead Game Designer
-                </div>
-
-                <span class="design-note">
-                    Concept / GDD — chưa phải game hoàn chỉnh
-                </span>
-
-            </article>
-
-
-            <article class="design-card reveal">
-
-                <div class="design-icon">
-                    <i class="fa-solid fa-route"></i>
-                </div>
-
-                <span class="design-type">
-                    GAME DESIGN DOCUMENT
-                </span>
-
-                <h3>
-                    Maze of Growth
-                </h3>
-
-                <p>
-                    Puzzle-Adventure-Survival concept xoay quanh
-                    một đứa trẻ khám phá mê cung vô tận,
-                    với định hướng phát triển cho mobile và PC.
-                </p>
-
-                <div class="design-role">
-                    <i class="fa-solid fa-pen-ruler"></i>
-                    Game Design
-                </div>
-
-                <span class="design-note">
-                    Concept / GDD — chưa phải game hoàn chỉnh
-                </span>
-
-            </article>
-
-
-            <article class="design-card design-process reveal">
-
-                <div class="design-process-icon">
-                    <i class="fa-solid fa-diagram-project"></i>
-                </div>
-
-                <div>
-
-                    <span class="design-type">
-                        WORKFLOW
-                    </span>
-
-                    <h3>
-                        Design → Prototype → Implement
-                    </h3>
-
-                    <p>
-                        Tôi sử dụng GDD để xác định gameplay trước,
-                        sau đó chuyển mechanics thành prototype Unity
-                        và tiếp tục iterate bằng code và testing.
-                    </p>
-
-                    <div class="process-list">
-
-                        <span>
-                            <b>01</b>
-                            Core Idea
-                        </span>
-
-                        <span>
-                            <b>02</b>
-                            Mechanics
-                        </span>
-
-                        <span>
-                            <b>03</b>
-                            Prototype
-                        </span>
-
-                        <span>
-                            <b>04</b>
-                            Iteration
-                        </span>
-
-                    </div>
-
-                </div>
-
-            </article>
-
-        </div>
-
-    </div>
-
+<section class="kit" aria-labelledby="kit-title">
+  <div class="wrap kit__grid">
+    <h2 id="kit-title">Công cụ và nơi học</h2>
+    <dl class="kit__list">
+      <div><dt>Dùng hằng ngày</dt><dd>Unity 6, C#, URP, Animator và state machine, Timeline, quản lý scene, ScriptableObject</dd></div>
+      <div><dt>Công cụ</dt><dd>Git, GitHub, Visual Studio, Unity Test Framework, Google Docs cho GDD</dd></div>
+      <div><dt>Đã học thêm</dt><dd>C, C++, Cocos2d-x, lập trình hướng đối tượng</dd></div>
+      <div><dt>Ngoại ngữ</dt><dd>Tiếng Việt. Tiếng Anh đọc hiểu tài liệu kỹ thuật, Unity Docs và GDD.</dd></div>
+    </dl>
+    <dl class="kit__list kit__list--school">
+      <div><dt>2024–2027</dt><dd><strong>VTC Academy</strong>, Hà Nội. Game Programming.</dd></div>
+      <div><dt>2024–2025</dt><dd><strong>HB Academy</strong>, Hà Nội. Game Developer, đã có chứng chỉ.</dd></div>
+    </dl>
+  </div>
 </section>
 
-
-<!-- =========================================================
-     SKILLS
-========================================================= -->
-
-<section class="section skills-section" id="skills">
-
-    <div class="container">
-
-        <div class="section-heading center reveal">
-
-            <span class="section-label">
-                04 — SKILLS
-            </span>
-
-            <h2>
-                Technical
-                <span>Skills</span>
-            </h2>
-
-            <p>
-                Không dùng phần trăm kỹ năng — project mới là nơi
-                thể hiện năng lực thực tế.
-            </p>
-
-        </div>
-
-
-        <div class="skills-grid">
-
-
-            <div class="skill-group reveal">
-
-                <div class="skill-group-header">
-
-                    <div class="skill-group-icon">
-                        <i class="fa-solid fa-gamepad"></i>
-                    </div>
-
-                    <div>
-                        <span>GAME DEVELOPMENT</span>
-                        <h3>Core Skills</h3>
-                    </div>
-
-                </div>
-
-                <div class="skill-list">
-
-                    <span>Unity</span>
-                    <span>C#</span>
-                    <span>Gameplay Programming</span>
-                    <span>Player Controller</span>
-                    <span>Combat Systems</span>
-                    <span>Enemy AI</span>
-                    <span>UI Systems</span>
-                    <span>Scene Management</span>
-
-                </div>
-
-            </div>
-
-
-            <div class="skill-group reveal">
-
-                <div class="skill-group-header">
-
-                    <div class="skill-group-icon">
-                        <i class="fa-solid fa-screwdriver-wrench"></i>
-                    </div>
-
-                    <div>
-                        <span>TOOLS</span>
-                        <h3>Development Workflow</h3>
-                    </div>
-
-                </div>
-
-                <div class="skill-list">
-
-                    <span>Git</span>
-                    <span>GitHub</span>
-                    <span>Visual Studio</span>
-                    <span>Unity Test Framework</span>
-                    <span>ScriptableObject</span>
-                    <span>Timeline</span>
-
-                </div>
-
-            </div>
-
-
-            <div class="skill-group reveal">
-
-                <div class="skill-group-header">
-
-                    <div class="skill-group-icon">
-                        <i class="fa-solid fa-pen-ruler"></i>
-                    </div>
-
-                    <div>
-                        <span>GAME DESIGN</span>
-                        <h3>Design Skills</h3>
-                    </div>
-
-                </div>
-
-                <div class="skill-list">
-
-                    <span>Game Design</span>
-                    <span>GDD</span>
-                    <span>Gameplay Mechanics</span>
-                    <span>Core Loop</span>
-                    <span>Progression</span>
-                    <span>Balancing</span>
-
-                </div>
-
-            </div>
-
-
-            <div class="skill-group reveal">
-
-                <div class="skill-group-header">
-
-                    <div class="skill-group-icon">
-                        <i class="fa-solid fa-code"></i>
-                    </div>
-
-                    <div>
-                        <span>PROGRAMMING</span>
-                        <h3>Additional</h3>
-                    </div>
-
-                </div>
-
-                <div class="skill-list">
-
-                    <span>C++</span>
-                    <span>C</span>
-                    <span>Cocos2d-x</span>
-                    <span>Object-Oriented Programming</span>
-                    <span>Debugging</span>
-
-                </div>
-
-            </div>
-
-        </div>
-
+<section class="cv" id="cv" aria-labelledby="cv-title">
+  <div class="wrap cv__grid">
+    <div class="cv__text">
+      <h2 id="cv-title">CV một trang</h2>
+      <p>
+        Dự án, kỹ năng, học vấn và liên hệ trên một trang PDF. Xem ngay ở đây,
+        hoặc tải về để lưu vào hồ sơ ứng viên.
+      </p>
+      <div class="cv__actions">
+        <a class="btn btn--main" href="assets/CV-Cao-Xuan-Minh.pdf" download>Tải CV (PDF, 110 KB)</a>
+        <a class="btn btn--ghost" href="assets/CV-Cao-Xuan-Minh.pdf" target="_blank" rel="noopener">Mở PDF toàn màn hình</a>
+      </div>
     </div>
-
+    <figure class="cv__sheet">
+      <a class="cv__img" href="assets/CV-Cao-Xuan-Minh.pdf" target="_blank" rel="noopener">
+        <picture>
+          <source srcset="assets/cv-preview.webp" type="image/webp">
+          <img src="assets/cv-preview.jpg" width="1275" height="1650" decoding="async"
+            alt="Trang CV của Cao Xuân Minh: dự án Ma Cảnh và Aerostrike, kỹ năng Unity, C# và thiết kế game, học vấn tại VTC Academy và HB Academy. Bấm để mở bản PDF.">
+        </picture>
+      </a>
+    </figure>
+  </div>
 </section>
 
-
-<!-- =========================================================
-     EDUCATION
-========================================================= -->
-
-<section class="section education-section" id="education">
-
-    <div class="container">
-
-        <div class="section-heading center reveal">
-
-            <span class="section-label">
-                05 — EDUCATION
-            </span>
-
-            <h2>
-                Education &
-                <span>Certificates</span>
-            </h2>
-
-        </div>
-
-
-        <div class="timeline">
-
-
-            <div class="timeline-item reveal">
-
-                <div class="timeline-dot"></div>
-
-                <div class="timeline-card">
-
-                    <span class="timeline-date">
-                        Current
-                    </span>
-
-                    <h3>
-                        VTC Academy
-                    </h3>
-
-                    <p class="timeline-role">
-                        Game Programming
-                    </p>
-
-                    <p>
-                        Học tập và phát triển kỹ năng Game Programming,
-                        Unity, C#, gameplay systems và Game Design.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <div class="timeline-item reveal">
-
-                <div class="timeline-dot"></div>
-
-                <div class="timeline-card">
-
-                    <span class="timeline-date">
-                        2024
-                    </span>
-
-                    <h3>
-                        HB Academy
-                    </h3>
-
-                    <p class="timeline-role">
-                        Certificate
-                    </p>
-
-                    <p>
-                        Chứng chỉ đã hoàn thành.
-                    </p>
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <div class="certificate-note reveal">
-
-            <i class="fa-solid fa-circle-info"></i>
-
-            <p>
-                Portfolio chỉ hiển thị những chứng chỉ đã có.
-                Các chứng chỉ đang dự kiến hoặc chưa hoàn thành
-                không được đưa vào để tránh gây hiểu nhầm.
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================================================
-     CONTACT
-========================================================= -->
-
-<section class="section contact-section" id="contact">
-
-    <div class="container">
-
-        <div class="contact-box reveal">
-
-            <div class="contact-main">
-
-                <span class="section-label">
-                    06 — CONTACT
-                </span>
-
-                <h2>
-                    Let's build
-                    <span>games together.</span>
-                </h2>
-
-                <p>
-                    Tôi đang tìm kiếm cơ hội internship hoặc junior
-                    trong lĩnh vực Game Development / Gameplay Programming.
-                    Nếu bạn muốn trao đổi về project, công việc hoặc
-                    cơ hội hợp tác, hãy liên hệ với tôi.
-                </p>
-
-
-                <div class="contact-actions">
-
-                    <a
-                        href="mailto:luonminh0203@gmail.com"
-                        class="contact-button"
-                    >
-                        <i class="fa-solid fa-envelope"></i>
-                        <span>
-                            <small>Email</small>
-                            luonminh0203@gmail.com
-                        </span>
-                    </a>
-
-
-                    <a
-                        href="tel:+84962881801"
-                        class="contact-button"
-                    >
-                        <i class="fa-solid fa-phone"></i>
-                        <span>
-                            <small>Phone</small>
-                            +84 962 881 601
-                        </span>
-                    </a>
-
-                </div>
-
-
-                <div class="social-links">
-
-                    <a
-                        href="https://github.com/JethroCao-hihi"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label="GitHub"
-                    >
-                        <i class="fa-brands fa-github"></i>
-                    </a>
-
-                    <a
-                        href="https://www.facebook.com/jethrocao2306/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label="Facebook"
-                    >
-                        <i class="fa-brands fa-facebook-f"></i>
-                    </a>
-
-                    <a
-                        href="https://jethrobeeus.itch.io/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label="Itch.io"
-                    >
-                        <i class="fa-solid fa-gamepad"></i>
-                    </a>
-
-                </div>
-
-            </div>
-
-
-            <div class="contact-side">
-
-                <div class="availability-card">
-
-                    <div class="availability-icon">
-                        <i class="fa-solid fa-briefcase"></i>
-                    </div>
-
-                    <span>Currently looking for</span>
-
-                    <h3>
-                        Internship / Junior
-                    </h3>
-
-                    <p>
-                        Game Developer<br>
-                        Gameplay Programmer<br>
-                        Game Programmer
-                    </p>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
+<section class="contact" id="lien-he" aria-labelledby="contact-title">
+  <div class="contact__sky" aria-hidden="true"></div>
+  <div class="wrap contact__inner">
+    <h2 id="contact-title">Gửi email là nhanh nhất.</h2>
+    <p>Tôi ở Cầu Giấy, Hà Nội, đang tìm chỗ thực tập hoặc vị trí junior làm Unity.</p>
+    <a class="contact__mail" href="mailto:luonminh0203@gmail.com?subject=Trao%20%C4%91%E1%BB%95i%20v%E1%BB%81%20v%E1%BB%8B%20tr%C3%AD%20gameplay%20programmer">luonminh0203@gmail.com</a>
+    <p class="contact__alt">Email ghi trong CV: <a href="mailto:caoxuanminh020306@gmail.com">caoxuanminh020306@gmail.com</a></p>
+    <ul class="contact__list">
+      <li><a href="tel:+84962881601">0962 881 601</a></li>
+      <li><a href="https://github.com/JethroCao-hihi" target="_blank" rel="noopener noreferrer">GitHub: JethroCao-hihi</a></li>
+      <li><a href="https://www.facebook.com/jethrocao2306/" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+    </ul>
+    <div class="contact__idle" aria-hidden="true"></div>
+  </div>
 </section>
 
 </main>
 
-
-<!-- =========================================================
-     FOOTER
-========================================================= -->
-
-<footer class="footer">
-
-    <div class="container footer-container">
-
-        <div>
-
-            <a href="#home" class="footer-logo">
-                Cao Xuân Minh
-            </a>
-
-            <p>
-                Game Developer • Gameplay Programmer
-            </p>
-
-        </div>
-
-
-        <div class="footer-right">
-
-            <a
-                href="https://github.com/JethroCao-hihi"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                GitHub
-            </a>
-
-            <a href="mailto:luonminh0203@gmail.com">
-                Email
-            </a>
-
-            <span>
-                © <span id="currentYear"></span> Cao Xuân Minh
-            </span>
-
-        </div>
-
-    </div>
-
+<footer class="foot">
+  <p>© 2026 Cao Xuân Minh. Hình nhân vật, quái và rừng lấy từ repo Ma Cảnh: Demon Realm.</p>
 </footer>
 
-
-<!-- =========================================================
-     BACK TO TOP
-========================================================= -->
-
-<button
-    id="backToTop"
-    class="back-to-top"
-    type="button"
-    aria-label="Lên đầu trang"
->
-    <i class="fa-solid fa-arrow-up"></i>
-</button>
-
-
-<script src="script.js"></script>
-
+<script src="main.js" defer></script>
+<script src="game.js" defer></script>
 </body>
 </html>
