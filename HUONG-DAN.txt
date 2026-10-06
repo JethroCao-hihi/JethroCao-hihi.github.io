@@ -1,0 +1,42 @@
+PORTFOLIO CAO XUÂN MINH
+=======================
+
+Xem thử trên máy
+----------------
+Giải nén, mở file index.html bằng Chrome hoặc Edge là xem được ngay, không cần cài gì.
+Màn chơi thử combat chạy được cả khi mở file trực tiếp.
+
+Đưa lên mạng bằng GitHub Pages (repo JethroCao-hihi.github.io đang có sẵn)
+-------------------------------------------------------------------------
+1. Vào repo JethroCao-hihi.github.io trên GitHub.
+2. Nên giữ lại bản cũ: tạo một nhánh mới (ví dụ "ban-cu") trước khi thay.
+3. Xoá các file cũ ở nhánh chính (index.html, style.css, script.js, CV.pdf),
+   rồi kéo thả toàn bộ nội dung thư mục này vào (index.html, styles.css, main.js,
+   game.js và thư mục assets).
+4. Commit. Khoảng 1 đến 2 phút sau trang mới hiện ở https://jethrocao-hihi.github.io/
+
+Trong trang có gì
+-----------------
+- Đầu trang: khu rừng 5 lớp parallax lấy từ chính game Ma Cảnh.
+- Ma Cảnh: Demon Realm, kèm màn chơi thử combat. Nhân vật, quái và tốc độ animation lấy
+  từ repo; sát thương, cooldown, lướt, phản đòn lấy từ các script.
+  Phím: A/D đi, Space nhảy, J đánh, K lướt, chạm nhanh L phản đòn, giữ L đỡ.
+  Trên điện thoại dùng nút cảm ứng.
+- Đoạn code TryParry, bảng quái và boss, các dự án khác (link thẳng tới file code),
+  hai bản GDD, kỹ năng, học vấn, CV (xem ngay và tải về), liên hệ.
+
+Cần bạn kiểm tra trước khi đăng
+-------------------------------
+1. EMAIL: trang web cũ ghi luonminh0203@gmail.com, còn CV ghi
+   caoxuanminh020306@gmail.com. Trang hiện để cả hai. Nên chọn một email chính rồi sửa
+   cho khớp: email trong trang nằm ở index.html (tìm "gmail"). Nếu sửa CV thì thay file
+   assets/CV-Cao-Xuan-Minh.pdf và ảnh xem trước assets/cv-preview.jpg, cv-preview.webp.
+2. HÌNH ẢNH: nhân vật, quái và khu rừng lấy từ repo MA-CANH-DEMON-REALM. Nếu đây là bộ
+   asset mua hoặc tải về (không phải nhóm tự vẽ), nên ghi tên tác giả ở chân trang
+   (index.html, đoạn class="foot").
+3. CV có 3 dấu gạch dài "—", nếu xuất lại CV có thể sửa luôn.
+
+Ghi chú
+-------
+- Trang dùng font Google (Unbounded, Source Sans 3, JetBrains Mono), cần mạng để tải font.
+- Khi tắt JavaScript, trang vẫn đọc được đầy đủ; chỉ màn chơi thử là không chạy.
