@@ -1,10 +1,10 @@
-# Jethro Cao - Game Developer Portfolio
+# Cao Xuân Minh - Game Developer Portfolio
 
 Portfolio cá nhân của Jethro Cao - Game Developer & Programmer. Website được thiết kế hiện đại với tông màu vàng chủ đạo, responsive và có nhiều hiệu ứng tương tác.
 
 ## 🎮 Thông tin cá nhân
 
-- **Tên**: Jethro Cao
+- **Tên**: Cao Xuân Minh
 - **Chuyên ngành**: Lập trình Game tại VTC Academy
 - **Đã hoàn thành**: Khóa học tại HB Academy
 - **Tình trạng**: Đang trong quá trình học
@@ -12,7 +12,7 @@ Portfolio cá nhân của Jethro Cao - Game Developer & Programmer. Website đư
 
 ## 💻 Kỹ năng lập trình
 
-- **Unity**: Game Engine chính (75%)
+- **Unity**: Game Engine chính (90%)
 - **C#**: Ngôn ngữ chính cho Unity (80%)
 - **C++**: Lập trình performance cao (70%)
 - **C**: Lập trình cấp thấp (65%)
