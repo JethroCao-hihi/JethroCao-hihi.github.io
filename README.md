@@ -140,8 +140,8 @@ https://jethrocao-hihi.github.io
 
 ## 📞 Liên hệ
 
-- **Email**: jethrocao.gamedev@gmail.com
-- **Phone**: +84 123 456 789
+- **Email**: caoxuanminh020306@gmail.com
+- **Phone**: +84 962 881 601
 - **Facebook**: facebook.com/jethrocao
 - **GitHub**: [JethroCao-hihi](https://github.com/JethroCao-hihi)
 
