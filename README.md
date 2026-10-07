@@ -16,8 +16,7 @@ Portfolio cá nhân của Jethro Cao - Game Developer & Programmer. Website đư
 - **C#**: Ngôn ngữ chính cho Unity (80%)
 - **C++**: Lập trình performance cao (70%)
 - **C**: Lập trình cấp thấp (65%)
-- **Cocos2d**: Game mobile 2D (60%)
-- **English**: Đang học để nâng cao (45%)
+- **Cocos2d**: Game mobile 2D (85%)
 
 ## 🌟 Tính năng website
 
@@ -142,7 +141,7 @@ https://jethrocao-hihi.github.io
 
 - **Email**: caoxuanminh020306@gmail.com
 - **Phone**: +84 962 881 601
-- **Facebook**: facebook.com/jethrocao
+- **Facebook**: facebook.com/jethrocao2306
 - **GitHub**: [JethroCao-hihi](https://github.com/JethroCao-hihi)
 
 ## 🎯 Mục tiêu tương lai
